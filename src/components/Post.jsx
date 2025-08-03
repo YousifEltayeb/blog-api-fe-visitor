@@ -1,4 +1,5 @@
 import { usePost } from "../hooks/usePost.jsx";
+import Markdown from "react-markdown";
 function Posts() {
   const { post, error, loading } = usePost();
   if (loading) {
@@ -16,6 +17,14 @@ function Posts() {
         </>
       );
   }
-  return <p>{post.content}</p>;
+  console.log(Markdown);
+  return (
+    <section class="text-left mb-auto px-32 p-8">
+      <h1 class="text-4xl text-center m-8 p-8">{post.title}</h1>
+      <article class="text-2xl">
+        <Markdown>{post.content}</Markdown>
+      </article>
+    </section>
+  );
 }
 export default Posts;
