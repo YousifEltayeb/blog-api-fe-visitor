@@ -8,12 +8,23 @@ export const AllPostsDataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`${VITE_SERVER_URL}/posts`, { method: "GET", mode: "cors" })
-      .then((data) => data.json())
-      .then((data) => setPosts(data))
-      .catch((err) => console.error(err));
+      .then((response) => {
+        if (response.status !== 200) {
+          setError(response);
+          return;
+        }
+        return response.json();
+      })
+      .then((response) => setPosts(response))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
   }, []);
 
-  return <Context.Provider value={posts}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ posts, error, loading }}>
+      {children}
+    </Context.Provider>
+  );
 };
 
 export const useAllPosts = () => useContext(Context);

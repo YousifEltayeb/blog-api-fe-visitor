@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, createContext } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -9,9 +9,19 @@ export const usePost = () => {
   const { postId } = useParams();
   useEffect(() => {
     fetch(`${VITE_SERVER_URL}/posts/${postId}`, { method: "GET", mode: "cors" })
-      .then((data) => data.json())
-      .then((data) => setPost(data))
-      .catch((err) => console.error(err));
+      .then((response) => {
+        if (response.status !== 200) {
+          setError(response);
+          return;
+        }
+        return response.json();
+      })
+      .then((response) => setPost(response))
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      })
+      .finally(() => setLoading(false));
   }, [postId]);
   return { post, error, loading };
 };
