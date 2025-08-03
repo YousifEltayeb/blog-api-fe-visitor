@@ -14,12 +14,14 @@ function Navbar() {
               <a
                 class="text-gray-500  hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium"
                 href="https://github.com/YousifEltayeb/blog-api-fe-visitor"
+                target="_blank"
               >
                 Github
               </a>
               <a
                 class="text-gray-500  hover:text-gray-800  px-3 py-2 rounded-md text-sm font-medium"
                 href="https://x.com/YousefTheKind"
+                target="_blank"
               >
                 Twitter
               </a>
