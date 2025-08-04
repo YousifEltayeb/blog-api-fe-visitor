@@ -1,10 +1,12 @@
 import { usePost } from "../hooks/usePost.jsx";
 import CommentForm from "./CommentForm.jsx";
+import Comments from "./Comments.jsx";
+import Skeleton from "./Skeleton.jsx";
 import Markdown from "react-markdown";
 function Posts() {
   const { post, error, loading } = usePost();
   if (loading) {
-    return <>Loading...</>;
+    return <Skeleton />;
   }
   if (error) {
     if (error.status === 404) {
@@ -27,6 +29,9 @@ function Posts() {
       </main>
       <section>
         <CommentForm postId={post.id} />
+      </section>
+      <section>
+        <Comments comments={post.comments} />
       </section>
     </>
   );

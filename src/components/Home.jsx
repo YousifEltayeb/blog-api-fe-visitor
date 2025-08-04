@@ -1,9 +1,10 @@
 import { useAllPosts } from "../hooks/useAllPosts.jsx";
 import { Link } from "react-router";
+import Skeleton from "./Skeleton.jsx";
 function Home() {
   const { posts, error, loading } = useAllPosts();
   if (loading) {
-    return <>Loading...</>;
+    return <Skeleton />;
   }
   if (error) {
     return (
