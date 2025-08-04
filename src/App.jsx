@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router";
-import Navbar from "./components/Navbar.jsx";
+import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
 import Post from "./components/Post.jsx";
@@ -11,9 +11,7 @@ function App() {
   return (
     <AllPostsDataProvider>
       <>
-        <header>
-          <Navbar />
-        </header>
+        <Header />
         <Routes>
           <Route index element={<Home />} />
           <Route path="/posts/:postId" element={<Post />} />

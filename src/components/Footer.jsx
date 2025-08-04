@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer>
+    <footer class="w-full border-t mt-4">
       Built by{" "}
       <a class="underline" href="https://github.com/YousifEltayeb">
         Yousef
