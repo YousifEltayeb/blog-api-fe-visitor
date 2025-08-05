@@ -8,7 +8,7 @@ const Comments = ({ comments }) => {
         const dateObj = new Date(comment.createdAt);
         const date = dateObj.toLocaleDateString("en-GB");
         return (
-          <div class="p-4 text-left min-w-full" key={comment.id}>
+          <div class="p-4 text-left " key={comment.id}>
             <div class="flex justify-between border-b ">
               <span>{comment.name} </span>
               <span class="ml-auto">{date}</span>

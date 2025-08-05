@@ -22,8 +22,11 @@ function Posts() {
   return (
     <>
       <main class="text-left mb-auto px-32 p-8 border-b">
-        <h1 class="text-4xl text-center m-8 p-8">{post.title}</h1>
-        <article class="text-2xl">
+        <div class="text-center">
+          <Markdown>{post.title}</Markdown>
+        </div>
+        <br />
+        <article>
           <Markdown>{post.content}</Markdown>
         </article>
       </main>
