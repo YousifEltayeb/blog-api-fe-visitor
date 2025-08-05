@@ -30,7 +30,7 @@ function Posts() {
       <section>
         <CommentForm postId={post.id} />
       </section>
-      <section>
+      <section class="min-w-full">
         <h2 class="text-2xl">Comments</h2>
         <Comments comments={post.comments} />
       </section>
