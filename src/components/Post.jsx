@@ -26,6 +26,8 @@ function Posts() {
           <Markdown>{post.title}</Markdown>
         </div>
         <br />
+        <span>Author: {post.Author.name}</span>
+        <br />
         <article>
           <Markdown>{post.content}</Markdown>
         </article>
